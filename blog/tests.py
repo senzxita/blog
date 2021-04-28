@@ -29,7 +29,7 @@ class BlogTests(TestCase):
     def test_post_content(self):
         self.assertEqual(f'{self.post.title}', 'A good title')
         self.assertEqual(f'{self.post.author}', 'testuser')
-        self.assertEqual(f'{self.post.body}', 'Nicebody')
+        self.assertEqual(f'{self.post.body}', 'Nice body')
 
     
     def test_post_list_view(self):
@@ -44,4 +44,4 @@ class BlogTests(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(no_response.status_code, 404)
         self.assertContains(response, 'A good title')
-        elf.assertTemplateUsed(response, 'post_detail.html')
+        self.assertTemplateUsed(response, 'post_detail.html')
